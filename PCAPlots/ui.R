@@ -20,35 +20,28 @@ shinyUI(fluidPage(
 
      sidebarPanel(
 
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30),
-
        sliderInput("w1",
                    "weight1:",
                    min = 1,
                    max = 50,
-                   value = 30),
+                   value = 10),
 
        sliderInput("w2",
                    "weight2:",
                    min = 1,
                    max = 50,
-                   value = 30),
+                   value = 10),
 
        sliderInput("w3",
                    "weight3:",
                    min = 1,
                    max = 50,
-                   value = 30)
+                   value = 10)
     ),
 
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot"),
-       plotOutput("distPlot2")
+       plotOutput("pcaPlot")
     )
   )
 ))

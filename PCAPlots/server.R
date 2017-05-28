@@ -9,25 +9,14 @@
 
 library(shiny)
 
+set.seed(101)
+xx = matrix(rnorm(300), ncol=3)
+
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
-  output$distPlot <- renderPlot({
+  output$pcaPlot <- renderPlot({
 
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-
-  })
-
-
-  output$distPlot2 <- renderPlot({
-
-    set.seed(101)
-    xx = matrix(rnorm(300), ncol=3)
     ww = c(input$w1, input$w2, input$w3)
     xx = t(ww * t(xx))
     pca = prcomp(xx)
